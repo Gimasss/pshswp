@@ -6,7 +6,7 @@
 /*   By: gmastroc <gmastroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 18:48:50 by gmastroc          #+#    #+#             */
-/*   Updated: 2024/07/03 18:41:55 by gmastroc         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:26:47 by gmastroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ t_list*	max_value_lst(t_list* head);
 t_list*	min_value_lst(t_list* head);
 
 //movements
-int		sort_ss_three(t_list **stack);
-int		sort_ss_five(t_list **stack_a, t_list **stack_b);
+int		sort_three(t_list **stack);
+int		sort_stack(t_list **stack_a, t_list **stack_b);
 void	swap(t_list **stack);
 void	swap_a(t_list **stack_a);
 void	swap_b(t_list **stack_b);
@@ -58,6 +58,10 @@ void	free_stack(t_list *stack);
 
 //parsing and some
 int		*atoi_evo(const char *str);
+int		is_sorted(t_list *stack);
+int		where_to_insert(t_list *stack_a, int content);
+void	reintegrate_with_a(t_list **stack_a, t_list **stack_b);
+
 
 
 #endif

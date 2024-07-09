@@ -6,7 +6,7 @@
 /*   By: gmastroc <gmastroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 14:48:10 by gmastroc          #+#    #+#             */
-/*   Updated: 2024/07/08 11:24:58 by gmastroc         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:15:20 by gmastroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ t_list	*parse_and_make_list(char **string)
 	return (stack_a);
 }
 
-
 int	main(int argc, char *argv[])
 {	
 	char **string;//split
@@ -73,16 +72,16 @@ int	main(int argc, char *argv[])
 		return (0);
 	if (argc == 2)//second argument is between brackets, split content
 		string = ft_split(argv[1], ' ');
-	else//if not between BRACKETS
+	else//if not bracketed, assumes each argument is a separate value and duplicates the array of arguments (excluding the program name) using mat_dupl.
 		string = mat_dupl(&argv[1], argc - 1);//I use the address to skip argv[0]
 	if (!string)
 		return (printf("string: wtf\n"), 1);
 	stack_a = parse_and_make_list(string);
 	stack_b = NULL;
-	if (stack_a == NULL && string[0] != NULL)
-		return (printf("wtf\n"), freefree(string), 1);
+	if (stack_a == NULL && string[0] != NULL)//error in list creation
+		return (printf("list: wtf\n"), freefree(string), 1);
 	freefree(string);
-	sort_ss_five(&stack_a, &stack_b);
+	sort_stack(&stack_a, &stack_b);
 	
 	t_list *s = stack_a;
 	while (s != NULL)//eliminare poi
